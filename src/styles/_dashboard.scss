@@ -1,0 +1,64 @@
+.dashboard{
+    overflow-y: auto;
+    .bar{
+        height: 4rem;
+        padding: 0 1rem;
+        @include flex(row, unset);
+        border-bottom: 1px solid rgba(0, 0, 0, .37);
+        >input{
+            margin-right: auto;
+            @include inputStyle(100%,1rem 0)
+        }
+        >svg{
+            font-size: 1.2rem;
+            opacity: .7;
+        }
+        >img{
+            @include square(2rem);
+            border-radius: 50%;
+        }
+    }
+    .widget-container{
+        @include flex(row, space-between, stretch, 2rem);
+        padding: 2rem 2rem 2rem 0;
+
+        .widget{
+            @include flex(row, space-between, stretch, 0);
+            width: 16rem;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10 rgba(0, 0, 0, .132);
+            .widgetInfo{
+                >p{
+                    opacity: .7;
+                    font-size: .8rem;
+                }
+                >h2{
+                    font-size: 1.5rem;
+                }
+                >span{
+                    @include flex(row, unset, center, .2rem)
+                }
+            }
+            .widgetCircle{
+                position: relative;
+                @include square(5rem);
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                background-color: aquamarine;
+                &::before{
+                    content: "";
+                    @include square(4rem);
+                    position: absolute;
+                    background-color: white;
+                    border-radius: 100%;
+                }
+                >span{
+                    position: absolute;
+                }
+            }
+        }
+    }
+}
