@@ -29,7 +29,7 @@
             border-radius: 10px;
             background-color: white;
             box-shadow: 0 0 10 rgba(0, 0, 0, .132);
-            .widgetInfo{
+            .widget-info{
                 >p{
                     opacity: .7;
                     font-size: .8rem;
@@ -41,7 +41,7 @@
                     @include flex(row, unset, center, .2rem)
                 }
             }
-            .widgetCircle{
+            .widget-circle{
                 position: relative;
                 @include square(5rem);
                 border-radius: 50%;
@@ -57,6 +57,63 @@
                 }
                 >span{
                     position: absolute;
+                }
+            }
+        }
+    }
+    .graph-container{
+        @include flex(row, unset, unset, 2rem);
+        padding: 0 2rem 2rem 0;
+        >div{
+            background-color: white;
+            border-radius: 10px;
+        }
+        .revenue-chart{
+            width: 100%;
+            padding: 1rem 3rem;
+            >h2{
+                @include heading;
+                margin: 1rem, 0, 2rem, 0.25rem;
+                text-align: center;
+            }
+        }
+        .dahsboard-categories{
+            width: 100%;
+            max-width: 16rem;
+            @include flex(column, center, unset, 0);
+            padding-bottom: 2rem;
+            >h2{
+                @include heading;
+                margin: 1.5rem 0 2rem 0;
+                text-align: center;
+            }
+            >div{
+                overflow-y: auto;
+                padding-left: .5rem;
+            }
+            .category-item{
+                width: 100%;
+                @include flex(row, space-between);
+                padding: 1rem;
+                >h5{
+                    letter-spacing: 1px;
+                    font-weight: 300;
+                }
+                >div{
+                    margin-left: auto;
+                    background-color: rgb(217, 217, 217);
+                    height: .5rem;
+                    width: 6rem;
+                    border-radius: 20px;
+                    flex: none;
+                    >div{
+                        border-radius: 20px;
+                        height: 100%;
+                    }
+                }
+                >span{
+                    font-weight: 700;
+                    font-size: .8rem;
                 }
             }
         }
