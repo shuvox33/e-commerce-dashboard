@@ -35,7 +35,6 @@ interface BarChartProps {
     bgColor_2: string;
     labels?: string[];
 }
-
 export const Barchart = ({ data_1 = [], data_2 = [], title_1, title_2, bgColor_1, bgColor_2, labels = months, horizontal = false }: BarChartProps) => {
 
     const options: ChartOptions<"bar"> = {
@@ -90,6 +89,7 @@ export const Barchart = ({ data_1 = [], data_2 = [], title_1, title_2, bgColor_1
 
     return <Bar options={options} data={data} />;
 }
+
 
 interface DoughnutChartProps{
     labels: string[];

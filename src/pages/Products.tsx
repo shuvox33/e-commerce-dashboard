@@ -4,7 +4,9 @@ const Products = () => {
     return (
         <div className="admin-container">
             <AdminSideBar/>
-            <main>main</main>
+            <main>
+
+            </main>
         </div>
     );
 };
