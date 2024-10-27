@@ -129,5 +129,21 @@
             box-shadow: 0 10px 10px rgba(0, 0, 0, .132);
             border-radius: 10px;
         }
+        .gender-chart{
+            max-width: 20rem;
+            width: 100%;
+            padding: 1rem;
+            position: relative;
+            >h2{
+                text-align: center;
+                margin: 1.5rem 0 2rem 0;
+                @include heading;
+            }
+            >p{
+                @include posCenter;
+                font-size: 2rem;
+                color: rgba(0, 0, 0, .634);
+            }
+        }
     }
 }
