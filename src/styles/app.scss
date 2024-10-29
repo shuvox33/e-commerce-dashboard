@@ -1,164 +1,217 @@
 @import "mixin";
-@import"dashboard";
+@import "dashboard";
 @import "products";
 
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .red {
-    color: red;
+  color: red;
 }
 
 .purple {
-    color: rgb(47, 0, 255);
+  color: rgb(47, 0, 255);
 }
 
 .green {
-    color: rgb(0, 195, 0);
+  color: rgb(0, 195, 0);
 }
 
 .admin-container {
-    @include grid(1fr 4fr, 2rem);
-    height: 100vh;
-    background-color: rgb(247, 247, 247);
+  @include grid(1fr 4fr, 2rem);
+  height: 100vh;
+  background-color: rgb(247, 247, 247);
 
-    >aside {
-        width: 100%;
-        background-color: white;
-        padding: 1rem;
-        z-index: 10;
-        overflow-y: auto;
+  > aside {
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    z-index: 10;
+    overflow-y: auto;
 
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        >div {
-            margin: 1rem 2rem;
-
-            >h5 {
-                @include heading(2px);
-                opacity: 0.8;
-                margin: 1rem 0;
-            }
-
-            >ul {
-                @include flex(column, unset, unset, 0.5rem);
-                list-style: none;
-
-                >li {
-                    padding: 0.5rem 1rem;
-                    border-radius: 10px;
-
-                    a {
-                        color: rgb(0, 0, 0, .825);
-                        @include flex(row, unset)
-                    }
-                }
-            }
-        }
+    &::-webkit-scrollbar {
+      display: none;
     }
+
+    > div {
+      margin: 1rem 2rem;
+
+      > h5 {
+        @include heading(2px);
+        opacity: 0.8;
+        margin: 1rem 0;
+      }
+
+      > ul {
+        @include flex(column, unset, unset, 0.5rem);
+        list-style: none;
+
+        > li {
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+
+          a {
+            color: rgb(0, 0, 0, 0.825);
+            @include flex(row, unset);
+          }
+        }
+      }
+    }
+  }
 }
 
 .table {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 
-    th,
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: bold;
+    color: #0000009e;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 2rem 1rem;
+  }
+
+  tbody {
+    tr {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+    }
+
     td {
-        padding: 8px;
-        text-align: left;
-        vertical-align: middle;
-    }
+      padding: 1rem;
 
-    th {
-        font-weight: bold;
-        color: #0000009e;
+      img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        background-color: rgba(44, 104, 255, 0.455);
+        color: rgba(44, 104, 255);
+        padding: 0.25rem 0.5rem;
+        border-radius: 10px;
+      }
+
+      button {
+        width: 2rem;
+        height: 2rem;
         font-size: 1.1rem;
-        font-weight: 400;
-        padding: 2rem 1rem;
-    }
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: rgb(255, 44, 44);
 
-    tbody {
-        tr {
-            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+        &:hover {
+          opacity: 0.6;
         }
+      }
 
-        td {
-            padding: 1rem;
+      &:first-child {
+        border-left: none;
+      }
 
-            img {
-                width: 4rem;
-                height: 4rem;
-                object-fit: contain;
-                border-radius: 10px;
-            }
-
-            a {
-                text-decoration: none;
-                background-color: rgba(44, 104, 255, 0.455);
-                color: rgba(44, 104, 255);
-                padding: 0.25rem 0.5rem;
-                border-radius: 10px;
-            }
-
-            button {
-                width: 2rem;
-                height: 2rem;
-                font-size: 1.1rem;
-                border: none;
-                outline: none;
-                background-color: transparent;
-                cursor: pointer;
-                color: rgb(255, 44, 44);
-
-                &:hover {
-                    opacity: 0.6;
-                }
-            }
-
-            &:first-child {
-                border-left: none;
-            }
-
-            &:last-child {
-                border-right: none;
-            }
-        }
+      &:last-child {
+        border-right: none;
+      }
     }
+  }
 }
 
 .table-pagination {
-    @include flex;
-    padding: 2rem;
+  @include flex;
+  padding: 2rem;
 
-    >button {
-        padding: 0.5rem 1rem;
-        border: none;
-        outline: none;
-        border-radius: 10px;
-        cursor: pointer;
-        background-color: rgba(0, 115, 255);
-        color: white;
+  > button {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 115, 255);
+    color: white;
 
-        &:disabled {
-            background-color: rgba(0, 115, 255, 0.1);
-            cursor: not-allowed;
-        }
+    &:disabled {
+      background-color: rgba(0, 115, 255, 0.1);
+      cursor: not-allowed;
     }
+  }
+}
+
+.product-management {
+  @include flex(row, center, unset);
+  padding: 4rem;
+  > article {
+    height: 85vh;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216);
+    > form {
+      @include flex(column, unset, center, 2rem);
+      > h2 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      > img {
+        @include square(5rem);
+        object-fit: cover;
+        border-radius: 5px;
+      }
+      > div {
+        width: 100%;
+        position: relative;
+        > label {
+          position: absolute;
+          left: 0;
+          top: -1.5rem;
+        }
+        > input {
+          @include inputStyle(
+            100%,
+            1rem,
+            unset,
+            1px solid rgba(13, 13, 13, 0.196)
+          );
+          border-radius: 5px;
+        }
+      }
+      >button{
+        padding: 1rem;
+        border: none;
+        background-color: rgb(5, 107, 224);
+        color: white;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+    }
+  }
 }
