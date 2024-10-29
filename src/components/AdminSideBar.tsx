@@ -50,9 +50,8 @@ const DivThree = ({ location }: { location: Location }) => (
     <div>
         <h5>Apps</h5>
         <ul>
-            <Li url="/admin/stopwatch" Icon={FaStopwatch} text="Stopwatch" location={location} />
-            <Li url="/admin/coupon" Icon={RiCoupon3Fill} text="Coupon" location={location} />
-            <Li url="/admin/toss" Icon={FaGamepad} text="Toss" location={location} />
+            <Li url="/admin/app/stopwatch" Icon={FaStopwatch} text="Stopwatch" location={location} />
+            <Li url="/admin/app/coupon" Icon={RiCoupon3Fill} text="Coupon" location={location} />
         </ul>
     </div>
 )
