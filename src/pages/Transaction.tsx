@@ -1,37 +1,39 @@
 import { Column } from "react-table";
 import AdminSideBar from "../components/AdminSideBar";
-import { ReactElement } from "react";
+import { ReactElement, useCallback, useState } from "react";
+import TableHOC from "../components/TableHOC";
+import { Link } from "react-router-dom";
 
 interface DataType {
-    avatar: ReactElement;
-    name: string;
-    email: string;
-    gender: string;
-    role: string;
+    user: string;
+    amount: number;
+    discount: number;
+    quantity: number;
+    status: ReactElement;
     action: ReactElement;
 }
 
 
 const column: Column<DataType>[] = [
     {
-        Header: 'Avatar',
-        accessor: 'avatar',
+        Header: 'User',
+        accessor: 'user',
     },
     {
-        Header: 'Name',
-        accessor: 'name',
+        Header: 'Amount',
+        accessor: 'amount',
     },
     {
-        Header: 'Emain',
-        accessor: 'email',
+        Header: 'Discount',
+        accessor: 'discount',
     },
     {
-        Header: 'Gender',
-        accessor: 'gender',
+        Header: 'Quantity',
+        accessor: 'quantity',
     },
     {
-        Header: 'Role',
-        accessor: 'role',
+        Header: 'Status',
+        accessor: 'status',
     },
     {
         Header: 'Action',
@@ -39,11 +41,43 @@ const column: Column<DataType>[] = [
     },
 ]
 
+const arr: DataType[] = [
+    {
+        user: "Charas",
+        amount: 4500,
+        discount: 400,
+        quantity: 3,
+        status: <span className="red">Processing</span>,
+        action: <Link to="/admin/transaction/sajknaskd">Manage</Link>,
+    },
+    {
+        user: "Xavirors",
+        amount: 6999,
+        discount: 400,
+        status: <span className="green">Shipped</span>,
+        quantity: 6,
+        action: <Link to="/admin/transaction/sajknaskd">Manage</Link>,
+    },
+    {
+        user: "Xavirors",
+        amount: 6999,
+        discount: 400,
+        status: <span className="purple">Delivered</span>,
+        quantity: 6,
+        action: <Link to="/admin/transaction/sajknaskd">Manage</Link>,
+    },
+];
+
 const Transaction = () => {
+
+    const [data] = useState<DataType[]>(arr);
+
+    const Table = useCallback(TableHOC<DataType>(column, data, "dashboard-product-box", "Transactions", true), []);
+
     return (
         <div className="admin-container">
             <AdminSideBar />
-            <main>main</main>
+            <main>{Table()}</main>
         </div>
     );
 };
