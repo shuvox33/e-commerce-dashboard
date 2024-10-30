@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import AdminSideBar from "../../components/AdminSideBar";
 
 const Coupon = () => {
@@ -40,6 +40,10 @@ const Coupon = () => {
     setCoupon(result);
   };
 
+  useEffect(()=>{
+    setIsCopied(false)
+  },[coupon])
+
   return (
     <div className="admin-container">
       <AdminSideBar />
@@ -59,8 +63,8 @@ const Coupon = () => {
               placeholder="Coupon"
               value={size}
               onChange={(e) => setSize(Number(e.target.value))}
-              maxLength={20}
-              minLength={8}
+              max={20}
+              min={8}
             />
 
             <fieldset>
