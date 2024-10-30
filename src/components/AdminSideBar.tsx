@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
+import { IoCloseOutline } from "react-icons/io5";
 
 const AdminSideBar = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -57,15 +58,17 @@ const AdminSideBar = () => {
             : {}
         }
       >
-        <h2>Logo</h2>
+        <div style={{ display: "flex", justifyContent: "center", alignItems:"center" }}>
+          <h2>Logo</h2>
+          {phoneActive && (
+            <button id="close-sidebar" onClick={() => setShowModal(false)}>
+              <IoCloseOutline/>
+            </button>
+          )}
+        </div>
         <DivOne location={location} />
         <DivTwo location={location} />
         <DivThree location={location} />
-        {phoneActive && (
-          <button id="close-sidebar" onClick={() => setShowModal(false)}>
-            Close
-          </button>
-        )}
       </aside>
     </>
   );
