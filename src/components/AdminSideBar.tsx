@@ -58,11 +58,11 @@ const AdminSideBar = () => {
             : {}
         }
       >
-        <div style={{ display: "flex", justifyContent: "center", alignItems:"center" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <h2>Logo</h2>
           {phoneActive && (
             <button id="close-sidebar" onClick={() => setShowModal(false)}>
-              <IoCloseOutline/>
+              <IoCloseOutline />
             </button>
           )}
         </div>
